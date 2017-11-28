@@ -1,0 +1,59 @@
+{
+  "name": "nyc-test",
+  "version": "0.0.1",
+  "nyc": {
+    "include": [
+      "*.js"
+    ],
+    "extension": [
+      ".js"
+    ],
+    "exclude": [
+      "**/dist/**",
+      "**/coverage/**",
+      "**/*.spec.js",
+      "**/*.e2e.js",
+      "**/bin/**"
+    ],
+    "reporter": [
+      "json",
+      "lcov",
+      "text",
+      "cobertura"
+    ],
+    "clean": true,
+    "produce-source-map": true,
+    "show-process-tree": false,
+    "report-dir": "./coverage",
+    "source-map": true,
+    "instrument": true,
+    "check-coverage": false,
+    "per-file": true,
+    "lines": 99,
+    "statements": 99,
+    "functions": 99,
+    "branches": 99,
+    "all": true
+  },
+  "scripts": {
+    "check-versions": "./node_modules/.bin/versions-checker -n \">=6.9\" --npm \">=3.10\"",
+    "print-banner": "./node_modules/.bin/print-cli -b -c green \"nyc-spawn-wrap-test\"",
+    "lint": "./node_modules/.bin/eslint .",
+    "clean": "./node_modules/.bin/rimraf \"./coverage\" \"./.nyc_output\"",
+    "build": "npm test",
+    "test": "NODE_ENV=test npm run check-versions && npm run clean && npm run lint && npm run test-cover && npm run print-banner",
+    "start": "echo \"no start task is added\"",
+    "test-unit": "./node_modules/.bin/mocha \"./lib/**/*.spec.js\" --opts \"./mocha.opts\"",
+    "test-cover": "./node_modules/.bin/nyc ./node_modules/.bin/mocha \"./lib/**/*.spec.js\" --opts \"./mocha.opts\""
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "eslint": "latest",
+    "mocha": "4.0.1",
+    "nyc": "^11.4.0",
+    "print-cli": "latest",
+    "rimraf": "2.6.2",
+    "sinon": "4.1.2",
+    "versions-checker": "latest"
+  }
+}
