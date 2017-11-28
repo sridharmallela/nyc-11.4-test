@@ -37,7 +37,7 @@
   },
   "scripts": {
     "check-versions": "./node_modules/.bin/versions-checker -n \">=6.9\" --npm \">=3.10\"",
-    "print-banner": "./node_modules/.bin/print-cli -b -c green \"nyc-spawn-wrap-test\"",
+    "print-banner": "./node_modules/.bin/print-cli -b -c green \"nyc-spawn-wrap\"",
     "lint": "./node_modules/.bin/eslint .",
     "clean": "./node_modules/.bin/rimraf \"./coverage\" \"./.nyc_output\"",
     "build": "npm test",
